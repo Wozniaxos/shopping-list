@@ -43,7 +43,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
           const quantityInList = productsInList[product.name]?.quantity || 0;
           return (
             <div key={product.name} style={{ marginBottom: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ flex: 1 }}>
+              <div style={{ 
+                flex: 1, 
+                fontWeight: quantityInList > 0 ? 'bold' : 'normal',
+                color: quantityInList > 0 ? 'white' : ''
+                }}>
                 <span>{product.name}</span>
               </div>
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -60,6 +64,8 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
                     color: "white",
                     padding: "5px 10px",
                     border: "none",
+                    width: "48px",
+                    height: "48px",
                     borderRadius: "5px",
                     marginRight: "5px",
                   }}
@@ -77,8 +83,8 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
                     border: "none",
                     borderRadius: "5px",
                     visibility: quantityInList > 0 ? "visible" : "hidden",  // Ustawiamy visibility zamiast display
-                    width: quantityInList > 0 ? "auto" : "0",  // Gdy przycisk jest niewidoczny, nie zajmuje miejsca
-                    height: quantityInList > 0 ? "auto" : "0",  // Unikamy zmiany układu
+                    width: "48px",
+                    height: "48px",
                     opacity: quantityInList > 0 ? "1" : "0",  // Ustawiamy opacity, aby przycisk był niewidoczny
                     transition: "visibility 0.2s, opacity 0.2s",  // Płynna zmiana widoczności
                   }}

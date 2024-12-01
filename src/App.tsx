@@ -81,26 +81,43 @@ const App: React.FC = () => {
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Shopping List</h1>
       
       {/* Przycisk Clear Bought Items */}
-      <button
-        onClick={onClearBought}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#FF9800",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          marginBottom: "20px",
-          display: "block",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        Clear Bought Items
-      </button>
+      {!showProductSearch && !showSetSearch && (
+        <button
+          onClick={onClearBought}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#FF9800",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            marginBottom: "20px",
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          Clear Bought Items
+        </button>
+      )}
+
+      {/* Główna lista zakupów */}
+      {!showProductSearch && !showSetSearch && (
+        <ProductList
+          products={Object.keys(shoppingList).map((key) => shoppingList[key])}
+          onStatusChange={onStatusChange}
+          onClear={onClearBought}
+        />
+      )}
 
       {/* Wyszukiwanie zestawów */}
       {showSetSearch && (
         <div>
+          <SetSearch
+            onAddSet={(set) => {
+              addSetToShoppingList(set);
+              setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
+            }}
+          />
           <button
             onClick={() => setShowSetSearch(false)}
             style={{
@@ -114,18 +131,17 @@ const App: React.FC = () => {
           >
             Back to List
           </button>
-          <SetSearch
-            onAddSet={(set) => {
-              addSetToShoppingList(set);
-              setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
-            }}
-          />
         </div>
       )}
 
       {/* Wyszukiwanie produktów */}
       {showProductSearch && (
         <div>
+          <ProductSearch
+            onAddProduct={addProductToShoppingList}
+            onRemoveProduct={removeProductFromShoppingList}
+            productsInList={shoppingList}
+          />
           <button
             onClick={() => setShowProductSearch(false)}
             style={{
@@ -139,53 +155,40 @@ const App: React.FC = () => {
           >
             Back to List
           </button>
-          <ProductSearch
-            onAddProduct={addProductToShoppingList}
-            onRemoveProduct={removeProductFromShoppingList}
-            productsInList={shoppingList}
-          />
         </div>
       )}
-
-      {/* Główna lista zakupów */}
       {!showProductSearch && !showSetSearch && (
-        <ProductList
-          products={Object.keys(shoppingList).map((key) => shoppingList[key])}
-          onStatusChange={onStatusChange}
-          onClear={onClearBought}
-        />
-      )}
-      
-      {/* Przycisk Add from set i Add to list na dole */}
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-        <button
-          onClick={() => setShowSetSearch(true)}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            width: "48%",
-          }}
-        >
-          Add from set
-        </button>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+          <button
+            onClick={() => setShowSetSearch(true)}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#808080",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              width: "48%",
+            }}
+          >
+            Add from set
+          </button>
 
-        <button
-          onClick={() => setShowProductSearch(true)}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            width: "48%",
-          }}
-        >
-          Add to list
-        </button>
-      </div>
+          <button
+            onClick={() => setShowProductSearch(true)}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#808080",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              width: "48%",
+            }}
+          >
+            Add to list
+          </button>
+        </div>
+      )}
+      {/* Przycisk Add from set i Add to list na dole */}
     </div>
   );
 };
