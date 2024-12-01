@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { PRODUCTS } from "./products";
-import { SETS } from "./sets";
 import ProductSearch from "./ProductSearch";
 import ProductList from "./ProductList";
 import SetSearch from "./SetSearch";
