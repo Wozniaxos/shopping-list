@@ -66,11 +66,11 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
                     backgroundColor: 'green',
                     color: 'white'
                   }
-                } onClick={() => onStatusChange(product.name, "bought")}>B</button>
+                } onClick={() => onStatusChange(product.name, "bought")}></button>
                 <button style={{
                   backgroundColor: 'orange',
                   color: 'white'
-                }} onClick={() => onStatusChange(product.name, "missing")}>M</button>
+                }} onClick={() => onStatusChange(product.name, "missing")}></button>
                 <button onClick={() => onAddProduct(product)}>+</button>
                 <button onClick={() => onRemoveProduct(product.name)}>-</button>
               </div>
