@@ -5,6 +5,8 @@ type Product = { name: string; category: string; quantity: number; status: "defa
 type Props = {
   products: Product[];
   onStatusChange: (name: string, status: "bought" | "missing") => void;
+  onAddProduct: (product: { category: string, name: string }) => void;
+  onRemoveProduct: (name: string) => void;
   onClear: () => void;
 };
 
@@ -15,7 +17,7 @@ const categoryColors: { [key: string]: string } = {
   Dairy: "white",
 };
 
-const ProductList: React.FC<Props> = ({ products, onStatusChange }) => {
+const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, onRemoveProduct }) => {
   const sortedProducts = [...products].sort((a, b) => {
     const statusOrder = ["default", "missing", "bought"];
     return (
@@ -31,6 +33,7 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange }) => {
             key={product.name}
             style={{
               display: "flex",
+              gap: "10px",
               justifyContent: "space-between",
               alignItems: "center",
               padding: "10px",
@@ -54,9 +57,20 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange }) => {
                   marginRight: "10px",
                 }}
               ></div>
-              <div>
-                <button onClick={() => onStatusChange(product.name, "bought")}>Bought</button>
-                <button onClick={() => onStatusChange(product.name, "missing")}>Missing</button>
+              <div style={{
+                display: "flex",
+                gap: "5px",
+              }}>
+                <button style={
+                  {
+                    backgroundColor: 'green'
+                  }
+                } onClick={() => onStatusChange(product.name, "bought")}>B</button>
+                <button style={{
+                  backgroundColor: 'orange'
+                }} onClick={() => onStatusChange(product.name, "missing")}>M</button>
+                <button onClick={() => onAddProduct(product)}>+</button>
+                <button onClick={() => onRemoveProduct(product.name)}>-</button>
               </div>
             </div>
           </li>

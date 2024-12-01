@@ -46,7 +46,11 @@ const App: React.FC = () => {
   const onStatusChange = (productName: string, status: "bought" | "missing") => {
     const updatedList = { ...shoppingList };
     if (updatedList[productName]) {
-      updatedList[productName].status = status; // Zmień status na bought lub missing
+      if (updatedList[productName].status === status) {
+        updatedList[productName].status = "default"; // Przywróć do stanu default, jeśli status jest taki sam
+      } else  {
+        updatedList[productName].status = status; // Zmień status na bought lub missing
+      }
     }
     setShoppingList(updatedList);
   };
@@ -105,6 +109,8 @@ const App: React.FC = () => {
         <ProductList
           products={Object.keys(shoppingList).map((key) => shoppingList[key])}
           onStatusChange={onStatusChange}
+          onAddProduct={addProductToShoppingList}
+          onRemoveProduct={removeProductFromShoppingList}
           onClear={onClearBought}
         />
       )}
