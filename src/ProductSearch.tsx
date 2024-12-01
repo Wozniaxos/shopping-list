@@ -22,6 +22,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const withQueryProducts = searchQuery ? [...filteredProducts, {
+    name: searchQuery,
+    category: "",
+  }] : filteredProducts;
+
   return (
     <div>
       <input
@@ -39,7 +44,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
         }}
       />
       <div>
-        {filteredProducts.map((product) => {
+        {withQueryProducts.map((product) => {
           const quantityInList = productsInList[product.name]?.quantity || 0;
           return (
             <div key={product.name} style={{ marginBottom: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
