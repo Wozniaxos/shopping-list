@@ -11,6 +11,13 @@ type ProductSearchProps = {
 
 const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemoveProduct, productsInList }) => {
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleFocus = () => {
+    if (searchQuery) {
+      setSearchQuery(""); // Czyszczenie pola wyszukiwania po focusie, jeśli nie jest puste
+    }
+  };
+
   const filteredProducts = PRODUCTS.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -22,13 +29,13 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
         placeholder="Search for products..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onFocus={handleFocus} // Czyszczenie pola przy focusie
         style={{
           width: "100%",
           padding: "10px",
           borderRadius: "5px",
           marginBottom: "20px",
           border: "1px solid #ccc",
-          fontSize: "16px",
         }}
       />
       <div>
