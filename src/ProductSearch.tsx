@@ -28,6 +28,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
           borderRadius: "5px",
           marginBottom: "20px",
           border: "1px solid #ccc",
+          fontSize: "16px",
         }}
       />
       <div>
