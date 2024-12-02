@@ -82,7 +82,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: '100%', width: '100%' }}>
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "8px", minHeight: '100%', width: '100%' }}>
       
       {/* Przycisk Clear Bought Items */}
       {!showProductSearch && !showSetSearch && (
