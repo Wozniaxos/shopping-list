@@ -22,7 +22,9 @@ export const categoryColors: { [key: string]: string } = {
   Pieczywo: "#D7B377",
   Alco: "#9B59B6",
   Chemia: "#16A085",
-  Spices: "#D35400"
+  Spices: "#D35400",
+  Candy: "#D35400",
+  Fit: "#4CAF50",
 };
 
 const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, onRemoveProduct }) => {
