@@ -40,7 +40,7 @@ const SetSearch: React.FC<Props> = ({ onAddSet, onGoBack }) => {
           onChange={(e) => setSearch(e.target.value)}
           style={{
             maxWidth: "100%",
-            minWidth: "200px",
+            width: "100%",
             padding: "10px",
             borderRadius: "5px",
             marginBottom: "20px",

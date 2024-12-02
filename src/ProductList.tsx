@@ -80,6 +80,12 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
                 {`x${product.quantity}`}
               </span>
                 <button style={{
+                  backgroundColor: 'green',
+                  color: 'white',
+                  width: "48px",
+                  height: "48px",
+                }} onClick={() => onStatusChange(product.name, "bought")}></button>
+                <button style={{
                   backgroundColor: 'orange',
                   color: 'white',
                   width: "48px",

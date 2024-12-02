@@ -39,7 +39,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
     <div style={{
       display: "flex",
       flexDirection: "column",
-      minHeight: '100vh'
+      minHeight: '100vh',
     }}>
       <div style={{
         display: "flex",
@@ -67,7 +67,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
           onFocus={handleFocus} // Czyszczenie pola przy focusie
           style={{
             maxWidth: "100%",
-            minWidth: "200px",
+            width: "100%",
             padding: "10px",
             borderRadius: "5px",
             marginBottom: "20px",
@@ -76,11 +76,15 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
           }}
         />
       </div>
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {withQueryProducts.map((product) => {
           const quantityInList = productsInList[product.name]?.quantity || 0;
           return (
-            <div key={product.name} style={{ marginBottom: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div key={product.name} style={{ 
+              // marginBottom: "10px",
+              padding: "10px", 
+              backgroundColor: "#222", 
+              display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ 
                 flex: 1, 
                 fontWeight: quantityInList > 0 ? 'bold' : 'normal',

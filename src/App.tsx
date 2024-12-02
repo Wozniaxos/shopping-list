@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProductSearch from "./ProductSearch";
 import ProductList from "./ProductList";
 import SetSearch from "./SetSearch";
+import './App.css'
 
 type Product = { name: string; category: string; quantity: number; status: "default" | "bought" | "missing" };
 
@@ -81,7 +82,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: '100vh', minWidth: '300px' }}>
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: '100%', width: '100%' }}>
       
       {/* Przycisk Clear Bought Items */}
       {!showProductSearch && !showSetSearch && (
