@@ -81,8 +81,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Shopping List</h1>
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: '100vh', minWidth: '300px' }}>
       
       {/* Przycisk Clear Bought Items */}
       {!showProductSearch && !showSetSearch && (
@@ -117,51 +116,23 @@ const App: React.FC = () => {
 
       {/* Wyszukiwanie zestawów */}
       {showSetSearch && (
-        <div>
-          <SetSearch
-            onAddSet={(set) => {
-              addSetToShoppingList(set);
-              setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
-            }}
-          />
-          <button
-            onClick={() => setShowSetSearch(false)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#9E9E9E",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              marginBottom: "20px",
-            }}
-          >
-            Back to List
-          </button>
-        </div>
+        <SetSearch
+          onGoBack={() => setShowSetSearch(false)}
+          onAddSet={(set) => {
+            addSetToShoppingList(set);
+            setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
+          }}
+        />
       )}
 
       {/* Wyszukiwanie produktów */}
       {showProductSearch && (
-        <div>
-          <ProductSearch
-            onAddProduct={addProductToShoppingList}
-            onRemoveProduct={removeProductFromShoppingList}
-            productsInList={shoppingList}
-          />
-          <button
-            onClick={() => setShowProductSearch(false)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#9E9E9E",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              marginBottom: "20px",
-            }}
-          >
-            Back to List
-          </button>
-        </div>
+        <ProductSearch
+          onAddProduct={addProductToShoppingList}
+          onGoBack={() => setShowProductSearch(false)}
+          onRemoveProduct={removeProductFromShoppingList}
+          productsInList={shoppingList}
+        />
       )}
       {!showProductSearch && !showSetSearch && (
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>

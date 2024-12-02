@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PRODUCTS } from "./products"; // Załóżmy, że masz listę produktów
+import { categoryColors } from "./ProductList";
 
 type Product = { name: string; category: string; quantity: number };
 
@@ -7,9 +8,10 @@ type ProductSearchProps = {
   onAddProduct: (product: { name: string; category: string }) => void;
   onRemoveProduct: (productName: string) => void;
   productsInList: { [name: string]: Product };
+  onGoBack: () => void;
 };
 
-const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemoveProduct, productsInList }) => {
+const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemoveProduct, productsInList, onGoBack }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleFocus = () => {
@@ -22,27 +24,58 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const withQueryProducts = searchQuery ? [...filteredProducts, {
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    return (
+      a.category.localeCompare(b.category)
+    );
+  });
+
+  const withQueryProducts = searchQuery ? [...sortedProducts, {
     name: searchQuery,
     category: "",
-  }] : filteredProducts;
+  }] : sortedProducts;
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search for products..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onFocus={handleFocus} // Czyszczenie pola przy focusie
-        style={{
-          width: "100%",
-          padding: "10px",
-          borderRadius: "5px",
-          marginBottom: "20px",
-          border: "1px solid #ccc",
-        }}
-      />
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      minHeight: '100vh'
+    }}>
+      <div style={{
+        display: "flex",
+        gap: "10px",
+        width: "100%",
+      }}>
+        <button
+          onClick={onGoBack}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#9E9E9E",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            marginBottom: "20px",
+          }}
+        >
+          Back
+        </button>
+        <input
+          type="text"
+          placeholder="Search for products..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onFocus={handleFocus} // Czyszczenie pola przy focusie
+          style={{
+            maxWidth: "100%",
+            minWidth: "200px",
+            padding: "10px",
+            borderRadius: "5px",
+            marginBottom: "20px",
+            border: "1px solid #ccc",
+            fontSize: "16px",
+          }}
+        />
+      </div>
       <div>
         {withQueryProducts.map((product) => {
           const quantityInList = productsInList[product.name]?.quantity || 0;
@@ -51,13 +84,24 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
               <div style={{ 
                 flex: 1, 
                 fontWeight: quantityInList > 0 ? 'bold' : 'normal',
+                display: 'flex',
+                gap: '5px',
+                alignItems: 'center',
                 color: quantityInList > 0 ? 'white' : ''
                 }}>
+                  <div
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      backgroundColor: categoryColors[product.category] || "gray",
+                      borderRadius: "50%", // Zaokrąglony kwadrat
+                    }}
+                  ></div>
                 <span>{product.name}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: '5px' }}>
                 {/* Ilość produktów */}
-                <span style={{ marginRight: "10px", color: "#888" }}>
+                <span style={{ color: "#888" }}>
                   {quantityInList > 0 && `x${quantityInList}`}
                 </span>
 
@@ -72,7 +116,6 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
                     width: "48px",
                     height: "48px",
                     borderRadius: "5px",
-                    marginRight: "5px",
                   }}
                 >
                   +
@@ -84,13 +127,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
                   style={{
                     backgroundColor: "#f44336",
                     color: "white",
-                    padding: "5px 10px",
                     border: "none",
                     borderRadius: "5px",
-                    visibility: quantityInList > 0 ? "visible" : "hidden",  // Ustawiamy visibility zamiast display
                     width: "48px",
                     height: "48px",
-                    opacity: quantityInList > 0 ? "1" : "0",  // Ustawiamy opacity, aby przycisk był niewidoczny
+                    opacity: quantityInList > 0 ? "1" : "0.1",  // Ustawiamy opacity, aby przycisk był niewidoczny
                     transition: "visibility 0.2s, opacity 0.2s",  // Płynna zmiana widoczności
                   }}
                 >

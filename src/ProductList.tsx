@@ -10,11 +10,19 @@ type Props = {
   onClear: () => void;
 };
 
-const categoryColors: { [key: string]: string } = {
-  Vegetables: "green",
-  Meats: "red",
-  Pasta: "yellow",
-  Dairy: "white",
+export const categoryColors: { [key: string]: string } = {
+  Vegetables: "#4CAF50",
+  Fruits: "#FF5733",
+  Frost: "#5DADE2",
+  Konserwy: "#D35400",
+  Dairy: "#F7DC6F",
+  Bakalie: "#8E6E53",
+  Zboza: "#E5B45F",
+  Meat: "#C0392B",
+  Pieczywo: "#D7B377",
+  Alco: "#9B59B6",
+  Chemia: "#16A085",
+  Spices: "#D35400"
 };
 
 const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, onRemoveProduct }) => {
@@ -33,7 +41,7 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
             key={product.name}
             style={{
               display: "flex",
-              gap: "10px",
+              gap: "20px",
               justifyContent: "space-between",
               alignItems: "center",
               padding: "10px",
@@ -44,35 +52,47 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
               borderRadius: "8px",
             }}
           >
-            <span>
-              {product.name} ({product.quantity})
-            </span>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+            }}>
               <div
+                onClick={() => onStatusChange(product.name, "bought")}
                 style={{
                   width: "15px",
                   height: "15px",
                   backgroundColor: categoryColors[product.category] || "gray",
                   borderRadius: "50%", // Zaokrąglony kwadrat
-                  marginRight: "10px",
                 }}
               ></div>
+              <span onClick={() => onStatusChange(product.name, "bought")}>
+                {product.name}
+              </span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center" }}>  
               <div style={{
                 display: "flex",
                 gap: "5px",
+                alignItems: "center"
               }}>
-                <button style={
-                  {
-                    backgroundColor: 'green',
-                    color: 'white'
-                  }
-                } onClick={() => onStatusChange(product.name, "bought")}></button>
+                <span style={{ color: "#888" }}>
+                {`x${product.quantity}`}
+              </span>
                 <button style={{
                   backgroundColor: 'orange',
-                  color: 'white'
+                  color: 'white',
+                  width: "48px",
+                  height: "48px",
                 }} onClick={() => onStatusChange(product.name, "missing")}></button>
-                <button onClick={() => onAddProduct(product)}>+</button>
-                <button onClick={() => onRemoveProduct(product.name)}>-</button>
+                <button style={{
+                  width: "48px",
+                  height: "48px",
+                }} onClick={() => onAddProduct(product)}>+</button>
+                <button style={{
+                  width: "48px",
+                  height: "48px",
+                }} onClick={() => onRemoveProduct(product.name)}>-</button>
               </div>
             </div>
           </li>
