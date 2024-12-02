@@ -126,37 +126,6 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Główna lista zakupów */}
-      {!showProductSearch && !showSetSearch && (
-        <ProductList
-          products={Object.keys(shoppingList).map((key) => shoppingList[key])}
-          onStatusChange={onStatusChange}
-          onAddProduct={addProductToShoppingList}
-          onRemoveProduct={removeProductFromShoppingList}
-          onClear={onClearBought}
-        />
-      )}
-
-      {/* Wyszukiwanie zestawów */}
-      {showSetSearch && (
-        <SetSearch
-          onGoBack={() => setShowSetSearch(false)}
-          onAddSet={(set) => {
-            addSetToShoppingList(set);
-            setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
-          }}
-        />
-      )}
-
-      {/* Wyszukiwanie produktów */}
-      {showProductSearch && (
-        <ProductSearch
-          onAddProduct={addProductToShoppingList}
-          onGoBack={() => setShowProductSearch(false)}
-          onRemoveProduct={removeProductFromShoppingList}
-          productsInList={shoppingList}
-        />
-      )}
       {!showProductSearch && !showSetSearch && (
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
           <button
@@ -187,6 +156,38 @@ const App: React.FC = () => {
             Add to list
           </button>
         </div>
+      )}
+
+      {/* Główna lista zakupów */}
+      {!showProductSearch && !showSetSearch && (
+        <ProductList
+          products={Object.keys(shoppingList).map((key) => shoppingList[key])}
+          onStatusChange={onStatusChange}
+          onAddProduct={addProductToShoppingList}
+          onRemoveProduct={removeProductFromShoppingList}
+          onClear={onClearBought}
+        />
+      )}
+
+      {/* Wyszukiwanie zestawów */}
+      {showSetSearch && (
+        <SetSearch
+          onGoBack={() => setShowSetSearch(false)}
+          onAddSet={(set) => {
+            addSetToShoppingList(set);
+            setShowSetSearch(false); // Zamknij wyszukiwarkę zestawów po dodaniu
+          }}
+        />
+      )}
+
+      {/* Wyszukiwanie produktów */}
+      {showProductSearch && (
+        <ProductSearch
+          onAddProduct={addProductToShoppingList}
+          onGoBack={() => setShowProductSearch(false)}
+          onRemoveProduct={removeProductFromShoppingList}
+          productsInList={shoppingList}
+        />
       )}
       {/* Przycisk Add from set i Add to list na dole */}
     </div>
