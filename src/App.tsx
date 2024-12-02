@@ -69,6 +69,10 @@ const App: React.FC = () => {
     setShoppingList(updatedList);
   };
 
+  const onReset = () => {
+    setShoppingList({});
+  }
+
   const addSetToShoppingList = (set: { name: string; products: { name: string; category: string; quantity: number }[] }) => {
     const updatedList = { ...shoppingList };
     set.products.forEach((product) => {
@@ -86,22 +90,40 @@ const App: React.FC = () => {
       
       {/* Przycisk Clear Bought Items */}
       {!showProductSearch && !showSetSearch && (
-        <button
-          onClick={onClearBought}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#FF9800",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            marginBottom: "20px",
-            display: "block",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          Clear Bought Items
-        </button>
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+        }}>
+          <button
+            onClick={onClearBought}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#FF9800",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              marginBottom: "20px",
+              display: "block",
+            }}
+          >
+            Clear Bought Items
+          </button>
+          <button
+            onClick={onReset}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "red",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              marginBottom: "20px",
+              display: "block",
+            }}
+          >
+            Reset
+          </button>
+        </div>
       )}
 
       {/* Główna lista zakupów */}
