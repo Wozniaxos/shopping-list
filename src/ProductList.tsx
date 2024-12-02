@@ -80,25 +80,30 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
                 {`x${product.quantity}`}
               </span>
                 <button style={{
-                  backgroundColor: 'green',
-                  color: 'white',
-                  width: "48px",
-                  height: "48px",
-                }} onClick={() => onStatusChange(product.name, "bought")}></button>
-                <button style={{
                   backgroundColor: 'orange',
                   color: 'white',
                   width: "48px",
                   height: "48px",
                 }} onClick={() => onStatusChange(product.name, "missing")}></button>
-                <button style={{
-                  width: "48px",
-                  height: "48px",
-                }} onClick={() => onAddProduct(product)}>+</button>
-                <button style={{
-                  width: "48px",
-                  height: "48px",
-                }} onClick={() => onRemoveProduct(product.name)}>-</button>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}>
+                  <button style={{
+                    width: "48px",
+                    height: "24px",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }} onClick={() => onAddProduct(product)}>+</button>
+                  <button style={{
+                    width: "48px",
+                    height: "24px",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }} onClick={() => onRemoveProduct(product.name)}>-</button>
+                </div>
               </div>
             </div>
           </li>
