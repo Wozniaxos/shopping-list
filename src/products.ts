@@ -101,6 +101,7 @@ export const PRODUCTS_BY_NAME = {
   Orzechy_arachidowe: { name: "Orzechy arachidowe", category: "Bakalie" },
   Orzechy_brazylijskie: { name: "Orzechy brazylijskie", category: "Bakalie" },
   Masło_orzechowe: { name: "Masło orzechowe", category: "Fit" },
+  Tahini: { name: "Tahini", category: "Fit" },
   Platki_owsiane: { name: "Płatki owsiane", category: "Fit" },
   Otreby_owsiane: { name: "Otręby owsiane", category: "Fit" },
   Musli: { name: "Musli", category: "Fit" },

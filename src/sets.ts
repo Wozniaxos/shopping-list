@@ -53,6 +53,18 @@ export const SETS = [
     ],
   },
   {
+    name: "Krewetki",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Krewetki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_koktailowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Papryczki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Wino_białe),
+    ],
+  },
+  {
     name: "Risotto",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Ryz_arborio),
@@ -168,6 +180,28 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Soda_oczyszczona),
       getProductWithQuantity(PRODUCTS_BY_NAME.Olej_rzepakowy),
       getProductWithQuantity(PRODUCTS_BY_NAME.Banan, 6),
+    ],
+  },
+  {
+    name: "Chleb",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_orkiszowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Drozdze),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Platki_owsiane),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Otreby_owsiane),
+    ],
+  },
+  {
+    name: "Hummus",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Tahini),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cytryna),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
     ],
   },
 ];
