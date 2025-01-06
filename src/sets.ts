@@ -77,6 +77,7 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Wino_białe),
       getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
       getProductWithQuantity(PRODUCTS_BY_NAME.Rukola),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
     ],
   },
   {
@@ -106,6 +107,32 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
       getProductWithQuantity(PRODUCTS_BY_NAME.Papryczki),
       getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+    ],
+  },
+  {
+    name: "Kurczak z gruszka",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kurczak),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Gruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Mascarpone),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_suszone),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ziola_prowansalskie),
+    ],
+  },
+  {
+    name: "Standard",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Banan),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jabłko),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kiwi),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Twaróg),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Skyr),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Skyr_owocowy),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jogurt_naturalny),
     ],
   },
   {
