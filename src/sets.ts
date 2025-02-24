@@ -133,6 +133,7 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Skyr),
       getProductWithQuantity(PRODUCTS_BY_NAME.Skyr_owocowy),
       getProductWithQuantity(PRODUCTS_BY_NAME.Jogurt_naturalny),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Mleko_sojowe),
     ],
   },
   {
@@ -229,6 +230,34 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
       getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
       getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
+    ],
+  },
+  {
+    name: "Picki",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Rukola),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Mozzarella),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Bazylia),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_w_puszce),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_0),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pancetta),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Salami_picante),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pieczarki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Drozdze),
+    ],
+  },
+  {
+    name: "Cieciorka z kalafiorem",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kalafior),
+      getProductWithQuantity(PRODUCTS_BY_NAME.ser_halloumi),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Szpinak),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
     ],
   },
 ];

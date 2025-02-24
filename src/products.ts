@@ -82,6 +82,7 @@ export const PRODUCTS_BY_NAME = {
   Ser_zółty: { name: "Ser żółty", category: "Dairy" },
   Ser_kozi: { name: "Ser kozi", category: "Dairy" },
   Ser_feta: { name: "Ser feta", category: "Dairy" },
+  ser_halloumi: { name: "Ser halloumi", category: "Dairy" },
   Ser_twarożkowy: { name: "Ser twarożkowy", category: "Dairy" },
   Mascarpone: { name: "Mascarpone", category: "Dairy" },
   Śmietana36: { name: "Śmietana 36", category: "Dairy" },
