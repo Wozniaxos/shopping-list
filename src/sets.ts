@@ -62,6 +62,8 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
       getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
       getProductWithQuantity(PRODUCTS_BY_NAME.Wino_białe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Rukola),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Grana_Padano),
     ],
   },
   {
@@ -258,6 +260,18 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Szpinak),
       getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
       getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+    ],
+  },
+  {
+    name: "Zupa dyniowa",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Dynia),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kostka_rosołowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Imbir),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Papryczki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
     ],
   },
 ];
