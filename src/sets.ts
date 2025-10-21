@@ -83,7 +83,17 @@ export const SETS = [
     ],
   },
   {
-    name: "Kalafior",
+    name: "Kalafior z ziemniakami",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kalafior),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ziemniaki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Koperek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ziola_prowansalskie),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+    ],
+  },
+  {
+    name: "Fasolka z ziemniakami",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Kalafior),
       getProductWithQuantity(PRODUCTS_BY_NAME.Ziemniaki),
@@ -132,10 +142,14 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Jabłko),
       getProductWithQuantity(PRODUCTS_BY_NAME.Kiwi),
       getProductWithQuantity(PRODUCTS_BY_NAME.Twaróg),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Skyr),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jajka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Makaron_razowy),
       getProductWithQuantity(PRODUCTS_BY_NAME.Skyr_owocowy),
       getProductWithQuantity(PRODUCTS_BY_NAME.Jogurt_naturalny),
       getProductWithQuantity(PRODUCTS_BY_NAME.Mleko_sojowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kapusta_kiszona),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ryż),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Migdały),
     ],
   },
   {
@@ -249,6 +263,23 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Pieczarki),
       getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
       getProductWithQuantity(PRODUCTS_BY_NAME.Drozdze),
+    ],
+  },
+  {
+    name: "Curry z cieciorka",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_koktailowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_w_puszce),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ryz_basmati),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kolendra),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kolendra_mielona),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cynamon),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Garam_masala),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Mleko_kokosowe),
     ],
   },
   {
