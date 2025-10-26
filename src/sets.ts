@@ -294,6 +294,18 @@ export const SETS = [
     ],
   },
   {
+    name: "Bataty z kasza, feta i szpinakiem",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kasza_gryczana),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ser_feta),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Szpinak),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ziola_prowansalskie),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_suszone),
+    ],
+  },
+  {
     name: "Zupa dyniowa",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Dynia),
