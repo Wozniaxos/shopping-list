@@ -152,6 +152,8 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Migdały),
       getProductWithQuantity(PRODUCTS_BY_NAME.Masło_orzechowe),
       getProductWithQuantity(PRODUCTS_BY_NAME.Wafle_ryżowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cheerios),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Zupa_grzybowa),
     ],
   },
   {

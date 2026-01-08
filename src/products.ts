@@ -185,6 +185,7 @@ export const PRODUCTS_BY_NAME = {
   Pasta_do_zebow: { name: "Pasta do zębów", category: "Chemia" },
   Mydlo: { name: "Mydło", category: "Chemia" },
   Cukier: { name: "Cukier", category: "Candy" },
+  Cheerios: { name: "Cheerios", category: "Candy" },
   Proszek_do_pieczenia: { name: "Proszek do pieczenia", category: "Candy" },
   Cukier_waniliowy: { name: "Cukier waniliowy", category: "Candy" },
   Soda_oczyszczona: { name: "Soda oczyszczona", category: "Candy" },
