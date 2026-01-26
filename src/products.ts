@@ -168,6 +168,7 @@ export const PRODUCTS_BY_NAME = {
   Sos_ostrygowy: { name: "Sos ostrygowy", category: "Spices" },
   Curry: { name: "Curry", category: "Spices" },
   Ketchup: { name: "Ketchup", category: "Spices" },
+  Koncentrat_pomidorowy: { name: "Koncentrat pomidorowy", category: "Spices" },
   Ziola_prowansalskie: { name: "Zioła prowansalskie", category: "Spices" },
   Oregano: { name: "Oregano", category: "Spices" },
   Kmin_rzymski: { name: "Kmin rzymski", category: "Spices" },
