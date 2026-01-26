@@ -62,12 +62,19 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
               <div
                 onClick={() => onStatusChange(product.name, "bought")}
                 style={{
-                  width: "15px",
-                  height: "15px",
-                  backgroundColor: categoryColors[product.category] || "gray",
-                  borderRadius: "50%", // Zaokrąglony kwadrat
+                  minWidth: "30px",
+                  minHeight: "30px",
+                  borderRadius: "50%",
+                  border: `3px solid ${categoryColors[product.category] || "gray"}`,
+                  backgroundColor: product.status === "bought" ? (categoryColors[product.category] || "gray") : "transparent",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
                 }}
-              ></div>
+              >
+                {product.status === "bought" && <span style={{ color: "white", fontWeight: "bold", textShadow: "0px 0px 3px black" }}>✓</span>}
+              </div>
               <span onClick={() => onStatusChange(product.name, "bought")}>
                 {product.name}
               </span>
@@ -86,7 +93,16 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
                   color: 'white',
                   width: "48px",
                   height: "48px",
-                }} onClick={() => onStatusChange(product.name, "missing")}></button>
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  padding: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }} onClick={() => onStatusChange(product.name, "missing")}>?</button>
                 <div style={{
                   display: 'flex',
                   flexDirection: 'column',
