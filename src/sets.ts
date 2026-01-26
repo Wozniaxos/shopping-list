@@ -7,6 +7,30 @@ const getProductWithQuantity = (product: Product, quantity: number = 1) => ({
 
 export const SETS = [
   {
+    name: "Standard",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Banan),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jabłko),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kiwi),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Twaróg),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jajka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Makaron_razowy),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Skyr_owocowy),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Jogurt_naturalny),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Mleko_sojowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kapusta_kiszona),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ryż),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Migdały),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Masło_orzechowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Wafle_ryżowe),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cheerios),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Zupa_grzybowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Rodzynki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Zakwas_z_buraków),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Dzem),
+    ],
+  },
+  {
     name: "Tortille",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Tortille),
@@ -136,30 +160,6 @@ export const SETS = [
     ],
   },
   {
-    name: "Standard",
-    products: [
-      getProductWithQuantity(PRODUCTS_BY_NAME.Banan),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Jabłko),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Kiwi),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Twaróg),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Jajka),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Makaron_razowy),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Skyr_owocowy),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Jogurt_naturalny),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Mleko_sojowe),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Kapusta_kiszona),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Ryż),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Migdały),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Masło_orzechowe),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Wafle_ryżowe),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cheerios),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Zupa_grzybowa),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Rodzynki),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Zakwas_z_buraków),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Dzem),
-    ],
-  },
-  {
     name: "Łosoś z purre z batatów",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Łosoś),
@@ -222,40 +222,6 @@ export const SETS = [
     ],
   },
   {
-    name: "Chleb bananowy",
-    products: [
-      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_orkiszowa),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Proszek_do_pieczenia),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier_waniliowy),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Soda_oczyszczona),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Olej_rzepakowy),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Banan, 6),
-    ],
-  },
-  {
-    name: "Chleb",
-    products: [
-      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_orkiszowa),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Drozdze),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Platki_owsiane),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Otreby_owsiane),
-    ],
-  },
-  {
-    name: "Hummus",
-    products: [
-      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Tahini),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cytryna),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
-    ],
-  },
-  {
     name: "Picki",
     products: [
       getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
@@ -299,18 +265,6 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
       getProductWithQuantity(PRODUCTS_BY_NAME.Ziola_prowansalskie),
       getProductWithQuantity(PRODUCTS_BY_NAME.Pomidory_suszone),
-    ],
-  },
-  {
-    name: "Zupa dyniowa",
-    products: [
-      getProductWithQuantity(PRODUCTS_BY_NAME.Dynia),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Kostka_rosołowa),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Imbir),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Papryczki),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
-      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
     ],
   },
   {
@@ -370,6 +324,52 @@ export const SETS = [
       getProductWithQuantity(PRODUCTS_BY_NAME.Fasolka_czerwona),
       getProductWithQuantity(PRODUCTS_BY_NAME.Sos_sojowy),
       getProductWithQuantity(PRODUCTS_BY_NAME.Ryz_basmati),
+    ],
+  },
+  {
+    name: "Zupa dyniowa",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Dynia),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cebula),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kostka_rosołowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Imbir),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Papryczki),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Bataty),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+    ],
+  },
+  {
+    name: "Chleb bananowy",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_orkiszowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Proszek_do_pieczenia),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier_waniliowy),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Soda_oczyszczona),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Olej_rzepakowy),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Banan, 6),
+    ],
+  },
+  {
+    name: "Chleb",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Maka_orkiszowa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Drozdze),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cukier),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Platki_owsiane),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Otreby_owsiane),
+    ],
+  },
+  {
+    name: "Hummus",
+    products: [
+      getProductWithQuantity(PRODUCTS_BY_NAME.Pietruszka),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Tahini),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Cytryna),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Oliwa),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Ciecierzyca),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Czosnek),
+      getProductWithQuantity(PRODUCTS_BY_NAME.Kmin_rzymski),
     ],
   },
 ];
