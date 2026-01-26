@@ -98,6 +98,7 @@ export const PRODUCTS_BY_NAME = {
   Skyr_owocowy: { name: "Skyr owocowy", category: "Dairy" },
   Makadamia: { name: "Makadamia", category: "Bakalie" },
   Slonecznik: { name: "Słonecznik", category: "Bakalie" },
+  Rodzynki: { name: "Rodzynki", category: "Bakalie" },
   Orzechy_laskowe: { name: "Orzechy laskowe", category: "Bakalie" },
   Sezam: { name: "Sezam", category: "Bakalie" },
   Orzechy_włoskie: { name: "Orzechy włoskie", category: "Bakalie" },
