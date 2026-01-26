@@ -14,58 +14,38 @@ const SetSearch: React.FC<Props> = ({ onAddSet, onGoBack }) => {
   );
 
   return (
-    <div style={{ padding: "10px" }}>
-      <div style={{
-        display: "flex",
-        gap: "10px",
-        width: "100%",
-      }}>
+    <div className="container" style={{ padding: 0, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div className="search-header" style={{ padding: 'var(--spacing-md)', paddingBottom: '0' }}>
         <button
           onClick={onGoBack}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#9E9E9E",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            marginBottom: "20px",
-          }}
+          className="back-btn" 
+          style={{ height: '48px', width: 'auto' }}
         >
           Back
         </button>
         <input
           type="text"
-          placeholder="Search set..."
+          className="search-input"
+          placeholder="Search for set..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{
-            maxWidth: "100%",
-            width: "100%",
-            padding: "10px",
-            borderRadius: "5px",
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
+          autoFocus
         />
       </div>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <ul className="product-list" style={{ padding: 'var(--spacing-md)', paddingTop: 'var(--spacing-sm)' }}>
         {filteredSets.map((set) => (
           <li
             key={set.name}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px",
-              marginBottom: "5px",
-              backgroundColor: "#222",
-              color: "white",
-              borderRadius: "8px",
-            }}
+            className="product-card"
           >
-            <span>{set.name}</span>
-            <button onClick={() => onAddSet(set)}>Add</button>
+            <span className="product-name">{set.name}</span>
+            <button 
+              onClick={() => onAddSet(set)}
+              className="action-btn primary"
+              style={{ height: '36px', padding: '0 20px', flex: 'none' }}
+            >
+              Add
+            </button>
           </li>
         ))}
       </ul>

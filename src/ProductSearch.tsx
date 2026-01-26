@@ -36,107 +36,70 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onAddProduct, onRemovePro
   }] : sortedProducts;
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      minHeight: '100vh',
-    }}>
-      <div style={{
-        display: "flex",
-        gap: "10px",
-        width: "100%",
-      }}>
+    <div className="container" style={{ padding: 0, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div className="search-header" style={{ padding: 'var(--spacing-md)', paddingBottom: '0' }}>
         <button
           onClick={onGoBack}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#9E9E9E",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            marginBottom: "20px",
-          }}
+          className="back-btn"
+          style={{ height: '48px', width: 'auto' }}
         >
           Back
         </button>
         <input
           type="text"
+          className="search-input"
           placeholder="Search for products..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          onFocus={handleFocus} // Czyszczenie pola przy focusie
-          style={{
-            maxWidth: "100%",
-            width: "100%",
-            padding: "10px",
-            borderRadius: "5px",
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
+          onFocus={handleFocus}
+          autoFocus
         />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      
+      <div className="product-list" style={{ padding: 'var(--spacing-md)', paddingTop: 'var(--spacing-sm)' }}>
         {withQueryProducts.map((product) => {
           const quantityInList = productsInList[product.name]?.quantity || 0;
           return (
-            <div key={product.name} style={{ 
-              // marginBottom: "10px",
-              padding: "10px", 
-              backgroundColor: "#222", 
-              display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ 
-                flex: 1, 
-                fontWeight: quantityInList > 0 ? 'bold' : 'normal',
-                display: 'flex',
-                gap: '5px',
-                alignItems: 'center',
-                color: quantityInList > 0 ? 'white' : ''
-                }}>
-                  <div
+            <div key={product.name} className="product-card">
+              <div className="product-info">
+                   <div
                     style={{
-                      width: "15px",
-                      height: "15px",
+                      width: "12px",
+                      height: "12px",
                       backgroundColor: categoryColors[product.category] || "gray",
-                      borderRadius: "50%", // Zaokrąglony kwadrat
+                      borderRadius: "50%",
+                      flexShrink: 0
                     }}
                   ></div>
-                <span>{product.name}</span>
+                <span 
+                  className="product-name"
+                  style={{ fontWeight: quantityInList > 0 ? "bold" : "normal" }}
+                >
+                  {product.name}
+                </span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: '5px' }}>
-                {/* Ilość produktów */}
-                <span style={{ color: "#888" }}>
+              
+              <div className="card-actions">
+                <span className="quantity-badge" style={{ opacity: quantityInList > 0 ? 1 : 0 }}>
                   {quantityInList > 0 && `x${quantityInList}`}
                 </span>
 
-                {/* Przycisk + */}
                 <button
                   onClick={() => onAddProduct(product)}
-                  style={{
-                    backgroundColor: "#4CAF50",
-                    color: "white",
-                    padding: "5px 10px",
-                    border: "none",
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "5px",
-                  }}
+                  className="icon-btn"
+                  style={{ backgroundColor: "#4CAF50", color: "white" }}
                 >
                   +
                 </button>
 
-                {/* Przycisk - (widoczny tylko gdy ilość > 0) */}
                 <button
                   onClick={() => onRemoveProduct(product.name)}
+                  className="icon-btn"
                   style={{
                     backgroundColor: "#f44336",
                     color: "white",
-                    border: "none",
-                    borderRadius: "5px",
-                    width: "48px",
-                    height: "48px",
-                    opacity: quantityInList > 0 ? "1" : "0.1",  // Ustawiamy opacity, aby przycisk był niewidoczny
-                    transition: "visibility 0.2s, opacity 0.2s",  // Płynna zmiana widoczności
+                    opacity: quantityInList > 0 ? "1" : "0.2",
+                    pointerEvents: quantityInList > 0 ? 'auto' : 'none'
                   }}
                 >
                   -

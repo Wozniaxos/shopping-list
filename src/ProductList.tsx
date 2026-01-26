@@ -36,92 +36,71 @@ const ProductList: React.FC<Props> = ({ products, onStatusChange, onAddProduct, 
   });
 
   return (
-    <div style={{ padding: "10px" }}>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+    <div className="container" style={{ padding: 0 }}>
+      {products.length === 0 && (
+        <div style={{ textAlign: 'center', color: '#666', marginTop: 50 }}>
+          List is empty
+        </div>
+      )}
+      <ul className="product-list">
         {sortedProducts.map((product) => (
           <li
             key={product.name}
+            className={`product-card ${product.status === "bought" ? "bought" : ""}`}
             style={{
-              display: "flex",
-              gap: "20px",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px",
-              marginBottom: "5px",
-              backgroundColor: "#222",
-              color: product.status === "bought" ? "green" : product.status === "missing" ? "orange" : "white",
-              textDecoration: product.status !== "default" ? "line-through" : "none", // Przekreślenie
-              borderRadius: "8px",
+              // Keep dynamic border color/status visual logic if valid, but let CSS handle valid parts
+              borderLeft: `4px solid ${categoryColors[product.category] || "gray"}`,
             }}
           >
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-            }}>
+            <div className="product-info">
               <div
+                className="category-checkbox"
                 onClick={() => onStatusChange(product.name, "bought")}
                 style={{
-                  minWidth: "30px",
-                  minHeight: "30px",
-                  borderRadius: "50%",
-                  border: `3px solid ${categoryColors[product.category] || "gray"}`,
+                  borderColor: categoryColors[product.category] || "gray",
                   backgroundColor: product.status === "bought" ? (categoryColors[product.category] || "gray") : "transparent",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
                 }}
               >
-                {product.status === "bought" && <span style={{ color: "white", fontWeight: "bold", textShadow: "0px 0px 3px black" }}>✓</span>}
+                {product.status === "bought" && <span className="checkmark">✓</span>}
               </div>
-              <span onClick={() => onStatusChange(product.name, "bought")}>
-                {product.name}
-              </span>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <span 
+                  className="product-name" 
+                  onClick={() => onStatusChange(product.name, "bought")}
+                  style={{
+                    textDecoration: product.status === "bought" ? "line-through" : "none",
+                    color: product.status === "bought" ? "#aaa" : (product.status === "missing" ? "orange" : "inherit")
+                  }}
+                >
+                  {product.name}
+                </span>
+                {product.status === "missing" && <span style={{fontSize: '0.8em', color: 'orange'}}>Missing</span>}
+              </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>  
-              <div style={{
-                display: "flex",
-                gap: "5px",
-                alignItems: "center"
-              }}>
-                <span style={{ color: "#888" }}>
-                {`x${product.quantity}`}
+
+            <div className="card-actions">
+              <span className="quantity-badge">
+                x{product.quantity}
               </span>
-                <button style={{
-                  backgroundColor: 'orange',
-                  color: 'white',
-                  width: "48px",
-                  height: "48px",
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  padding: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }} onClick={() => onStatusChange(product.name, "missing")}>?</button>
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}>
-                  <button style={{
-                    width: "48px",
-                    height: "24px",
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }} onClick={() => onAddProduct(product)}>+</button>
-                  <button style={{
-                    width: "48px",
-                    height: "24px",
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }} onClick={() => onRemoveProduct(product.name)}>-</button>
-                </div>
+              
+              <button 
+                className="icon-btn missing-btn"
+                onClick={() => onStatusChange(product.name, "missing")}
+                aria-label="Mark as missing"
+              >
+                ?
+              </button>
+
+              <div className="controls-column">
+                <button 
+                  className="add-btn"
+                  onClick={() => onAddProduct(product)}
+                >+</button>
+                <button 
+                  className="remove-btn"
+                  onClick={() => onRemoveProduct(product.name)}
+                >-</button>
               </div>
             </div>
           </li>

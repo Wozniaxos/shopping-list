@@ -86,40 +86,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "8px", minHeight: '100%', width: '100%' }}>
+    <div className="container">
       
       {/* Przycisk Clear Bought Items */}
       {!showProductSearch && !showSetSearch && (
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "20px",
-        }}>
+        <div className="header-actions">
           <button
             onClick={onClearBought}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#FF9800",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              marginBottom: "20px",
-              display: "block",
-            }}
+            className="action-btn"
+            style={{ backgroundColor: "#FF9800", color: "#fff" }} // Overriding just color for specific logic
           >
-            Clear Bought Items
+            Clear Bought
           </button>
           <button
             onClick={onReset}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "red",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              marginBottom: "20px",
-              display: "block",
-            }}
+            className="action-btn"
+            style={{ backgroundColor: "#ff4d4d", color: "#fff" }}
           >
             Reset
           </button>
@@ -127,33 +109,19 @@ const App: React.FC = () => {
       )}
 
       {!showProductSearch && !showSetSearch && (
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+        <div className="header-actions">
           <button
             onClick={() => setShowSetSearch(true)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#808080",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              width: "48%",
-            }}
+            className="action-btn secondary"
           >
-            Add from set
+            Add Set
           </button>
 
           <button
             onClick={() => setShowProductSearch(true)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#808080",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              width: "48%",
-            }}
+            className="action-btn primary"
           >
-            Add to list
+            Add Item
           </button>
         </div>
       )}
